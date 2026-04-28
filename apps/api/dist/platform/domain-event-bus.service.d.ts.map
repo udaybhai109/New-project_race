@@ -1,0 +1,1 @@
+{"version":3,"file":"domain-event-bus.service.d.ts","sourceRoot":"","sources":["../../src/platform/domain-event-bus.service.ts"],"names":[],"mappings":"AAGA,qBACa,cAAc;IACzB,OAAO,CAAC,QAAQ,CAAC,OAAO,CAAsB;IAE9C,IAAI,CAAC,CAAC,EAAE,KAAK,EAAE,MAAM,EAAE,OAAO,EAAE,CAAC;IAOjC,EAAE,CAAC,CAAC,EAAE,KAAK,EAAE,MAAM,EAAE,OAAO,EAAE,CAAC,OAAO,EAAE,CAAC,KAAK,IAAI;CAGnD"}

@@ -1,0 +1,17 @@
+{
+  "name": "stride-x-platform",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.6.1",
+  "scripts": {
+    "dev": "pnpm --dir apps/api dev",
+    "build": "pnpm --dir apps/api build",
+    "typecheck": "pnpm --dir apps/api typecheck"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.7",
+    "@types/node": "^22.15.3",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
+  }
+}
