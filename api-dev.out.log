@@ -1,8 +1,0 @@
-
-> stride-x-platform@0.1.0 dev A:\New project
-> pnpm --dir apps/api dev
-
-
-> @stride-x/api@0.1.0 dev A:\New project\apps\api
-> nest start --watch
-

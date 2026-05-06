@@ -5,8 +5,13 @@
   "packageManager": "pnpm@10.6.1",
   "scripts": {
     "dev": "pnpm --dir apps/api dev",
-    "build": "pnpm --dir apps/api build",
-    "typecheck": "pnpm --dir apps/api typecheck"
+    "dev:web": "pnpm --dir apps/web dev",
+    "dev:all": "pnpm --parallel --filter @stride-x/api --filter @aevra/web dev",
+    "build": "pnpm --dir apps/api build && pnpm --dir apps/web build",
+    "build:api": "pnpm --dir apps/api build",
+    "build:web": "pnpm --dir apps/web build",
+    "typecheck": "pnpm --dir apps/api typecheck && pnpm --dir apps/web typecheck",
+    "test": "pnpm typecheck"
   },
   "devDependencies": {
     "@nestjs/cli": "^11.0.7",

@@ -10,6 +10,21 @@ export class AuthController {
     return { data: this.authService.login(body.email) };
   }
 
+  @Post("signup")
+  signup(@Body() body: { email: string; displayName: string; countryCode?: string }) {
+    return { data: this.authService.signup(body) };
+  }
+
+  @Post("otp/send")
+  sendOtp(@Body() body: { email: string }) {
+    return { data: this.authService.sendOtp(body.email) };
+  }
+
+  @Post("otp/verify")
+  verifyOtp(@Body() body: { email: string; code: string }) {
+    return { data: this.authService.verifyOtp(body.email, body.code) };
+  }
+
   @Post("oauth")
   oauth(@Body() body: { provider: "google" | "apple"; code: string }) {
     return { data: this.authService.oauth(body.provider, body.code) };
@@ -25,4 +40,3 @@ export class AuthController {
     };
   }
 }
-

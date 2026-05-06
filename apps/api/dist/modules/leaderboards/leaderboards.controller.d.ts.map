@@ -1,1 +1,0 @@
-{"version":3,"file":"leaderboards.controller.d.ts","sourceRoot":"","sources":["../../../src/modules/leaderboards/leaderboards.controller.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,mBAAmB,EAAE,MAAM,wBAAwB,CAAC;AAE7D,qBACa,sBAAsB;IACrB,OAAO,CAAC,QAAQ,CAAC,mBAAmB;gBAAnB,mBAAmB,EAAE,mBAAmB;IAGrE,OAAO,CAAmB,OAAO,EAAE,MAAM;;;IAKzC,MAAM,CAAkB,MAAM,SAAc;;;;;CAG7C"}

@@ -1,0 +1,1137 @@
+:root {
+  color-scheme: light;
+  font-family: "Aptos", "Segoe UI", sans-serif;
+  background: #f4f7f3;
+  color: #15191c;
+  --ink: #15191c;
+  --muted: #62706a;
+  --line: #dce5dd;
+  --paper: #fffdf7;
+  --surface: #ffffff;
+  --field: #f7faf6;
+  --green: #b9ff53;
+  --green-dark: #527d00;
+  --blue: #2f9fff;
+  --coral: #ff6b4a;
+  --charcoal: #20262a;
+  --shadow: 0 18px 48px rgba(21, 25, 28, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background:
+    linear-gradient(120deg, rgba(185, 255, 83, 0.2), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(47, 159, 255, 0.16), transparent 31%),
+    #f4f7f3;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(47, 159, 255, 0.45);
+  outline-offset: 2px;
+}
+
+.auth-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(360px, 1fr) minmax(360px, 520px);
+}
+
+.auth-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 42px;
+  overflow: hidden;
+  background:
+    linear-gradient(150deg, rgba(21, 25, 28, 0.86), rgba(21, 25, 28, 0.58)),
+    linear-gradient(135deg, #182a27 0%, #2f9fff 52%, #b9ff53 100%);
+  color: white;
+}
+
+.auth-visual::before {
+  content: "";
+  position: absolute;
+  inset: 9%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  transform: rotate(-6deg);
+}
+
+.brand-lockup {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 850;
+  font-size: 22px;
+  letter-spacing: 0;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--green);
+  color: var(--ink);
+  font-weight: 950;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.22);
+}
+
+.auth-map {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  width: min(82vw, 620px);
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.auth-proof {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.auth-proof span {
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.auth-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  padding: 44px;
+  background: var(--paper);
+}
+
+.auth-panel h1,
+.hero-band h1,
+.section-head h1,
+.race-hero h1 {
+  margin: 0;
+  font-size: clamp(42px, 7vw, 84px);
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+.auth-panel p,
+.hero-band p,
+.section-head p,
+.race-hero p {
+  max-width: 640px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 6px;
+  background: #e8efe8;
+  border-radius: 8px;
+}
+
+.segmented button,
+.record-mode button,
+.oauth-row button,
+.button-row button,
+.share-row button,
+.mobile-nav button,
+.topbar-actions button {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  color: var(--ink);
+  background: transparent;
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.segmented button.active,
+.record-mode button.active,
+.mobile-nav button.active,
+.sidebar nav button.active {
+  background: var(--surface);
+  box-shadow: 0 8px 18px rgba(21, 25, 28, 0.08);
+}
+
+.form-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.form-stack.compact {
+  gap: 10px;
+}
+
+.form-stack label,
+.country-select {
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.form-stack input,
+.form-stack select,
+.inline-form input,
+.country-select select {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 0 14px;
+  color: var(--ink);
+  background: var(--field);
+}
+
+.primary-button,
+.ghost-button,
+.danger-button {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 16px;
+  border-radius: 7px;
+  font-weight: 850;
+}
+
+.primary-button {
+  background: var(--ink);
+  color: white;
+}
+
+.ghost-button {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.danger-button {
+  background: var(--coral);
+  color: white;
+}
+
+.oauth-row,
+.button-row,
+.share-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.oauth-row button,
+.button-row button,
+.share-row button {
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.button-row.center {
+  justify-content: center;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 246px 1fr;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  padding: 26px 18px;
+  background: #15191c;
+  color: white;
+}
+
+.sidebar .brand-mark {
+  box-shadow: 5px 5px 0 rgba(255, 255, 255, 0.1);
+}
+
+.sidebar nav {
+  display: grid;
+  gap: 6px;
+}
+
+.sidebar nav button {
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 12px;
+  border-radius: 7px;
+  color: rgba(255, 255, 255, 0.78);
+  background: transparent;
+  font-weight: 760;
+  text-align: left;
+}
+
+.sidebar nav button.active {
+  color: white;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+}
+
+.workspace {
+  min-width: 0;
+  padding: 22px clamp(16px, 3vw, 34px) 46px;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: -22px clamp(-34px, -3vw, -16px) 22px;
+  padding: 14px clamp(16px, 3vw, 34px);
+  border-bottom: 1px solid rgba(220, 229, 221, 0.75);
+  background: rgba(244, 247, 243, 0.82);
+  backdrop-filter: blur(16px);
+}
+
+.topbar strong,
+.topbar span {
+  display: block;
+}
+
+.topbar span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.topbar-actions button {
+  width: 42px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.screen-grid,
+.feed-layout,
+.record-layout,
+.race-layout {
+  display: grid;
+  gap: 18px;
+}
+
+.hero-band,
+.race-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 480px);
+  align-items: center;
+  gap: clamp(22px, 5vw, 64px);
+  min-height: 520px;
+  padding: clamp(24px, 5vw, 56px);
+  border-radius: 8px;
+  overflow: hidden;
+  background:
+    linear-gradient(115deg, rgba(255, 253, 247, 0.94), rgba(255, 253, 247, 0.7)),
+    linear-gradient(135deg, #b9ff53 0%, #57b9ff 42%, #ff6b4a 100%);
+  box-shadow: var(--shadow);
+}
+
+.hero-band h1 {
+  max-width: 620px;
+}
+
+.hero-band > *,
+.race-hero > * {
+  min-width: 0;
+}
+
+.phone-preview {
+  position: relative;
+  min-height: 430px;
+  padding: 18px;
+  border: 10px solid #15191c;
+  border-radius: 26px;
+  background: #f4f7f3;
+  transform: rotate(2deg);
+  box-shadow: 18px 20px 0 rgba(21, 25, 28, 0.12);
+}
+
+.phone-preview .route-map {
+  height: 330px;
+}
+
+.phone-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.phone-metrics span {
+  padding: 12px;
+  border-radius: 7px;
+  background: white;
+  font-weight: 850;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.metric-card,
+.panel,
+.post-card,
+.plan-card,
+.training-card,
+.billing-provider {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 26px rgba(21, 25, 28, 0.06);
+}
+
+.metric-card {
+  display: grid;
+  gap: 8px;
+  min-height: 156px;
+  padding: 18px;
+}
+
+.metric-card span,
+.metric-card em,
+.route-row span,
+.challenge-row span,
+.post-header span,
+.training-card span,
+.training-card em,
+.list-row,
+.empty-state {
+  color: var(--muted);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.metric-card strong {
+  font-size: 29px;
+  letter-spacing: 0;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.panel {
+  min-width: 0;
+  padding: 18px;
+}
+
+.panel-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.panel-title h2,
+.post-body h2,
+.coach-player h2,
+.plan-card h2 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0;
+}
+
+.workout-card {
+  display: grid;
+  gap: 10px;
+}
+
+.workout-card span,
+.coach-player p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.progress-track {
+  height: 9px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e6eee7;
+}
+
+.progress-track i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--green), var(--blue));
+}
+
+.record-layout {
+  grid-template-columns: minmax(280px, 0.9fr) minmax(360px, 1.4fr);
+}
+
+.record-console {
+  grid-row: span 2;
+  display: grid;
+  align-content: center;
+  gap: 24px;
+  min-height: 580px;
+  padding: clamp(20px, 4vw, 36px);
+  border-radius: 8px;
+  background: #15191c;
+  color: white;
+}
+
+.record-mode {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.record-mode button {
+  color: white;
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.record-mode button.active {
+  color: var(--ink);
+  background: var(--green);
+}
+
+.timer {
+  font-size: clamp(56px, 8vw, 112px);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+
+.record-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.record-stats strong,
+.record-stats span {
+  display: grid;
+  place-items: center;
+  min-height: 76px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 46px;
+  border-bottom: 1px solid var(--line);
+}
+
+.switch {
+  width: 52px;
+  height: 30px;
+  padding: 3px;
+  border-radius: 999px;
+  background: #dfe8e1;
+}
+
+.switch i {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: white;
+  box-shadow: 0 3px 8px rgba(21, 25, 28, 0.12);
+  transition: transform 0.2s ease;
+}
+
+.switch.active {
+  background: var(--ink);
+}
+
+.switch.active i {
+  transform: translateX(22px);
+}
+
+.contact-list,
+.readiness-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.contact-list span,
+.readiness-grid span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 0 10px;
+  border-radius: 6px;
+  background: var(--field);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.route-map {
+  width: 100%;
+  min-height: 260px;
+  border-radius: 7px;
+  background: #e8efe8;
+}
+
+.route-map.light {
+  background: transparent;
+}
+
+.map-grid {
+  stroke: rgba(98, 112, 106, 0.2);
+  stroke-width: 2;
+}
+
+.map-road {
+  fill: none;
+  stroke: rgba(21, 25, 28, 0.22);
+  stroke-width: 22;
+  stroke-linecap: round;
+}
+
+.route-line {
+  fill: none;
+  stroke: url(#routeStroke);
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 640;
+}
+
+.route-line.animated {
+  animation: dashRun 2.4s linear infinite;
+}
+
+.start-dot {
+  fill: var(--green);
+}
+
+.finish-dot {
+  fill: var(--coral);
+}
+
+.feed-layout {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.post-card {
+  overflow: hidden;
+}
+
+.post-header,
+.post-body {
+  padding: 16px;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--ink);
+  color: white;
+  font-weight: 900;
+}
+
+.post-photo {
+  min-height: 300px;
+  display: grid;
+  place-items: center;
+}
+
+.post-photo .route-map {
+  width: min(86%, 520px);
+  min-height: 220px;
+}
+
+.post-body {
+  display: grid;
+  gap: 13px;
+}
+
+.post-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.post-stats span {
+  padding: 12px;
+  border-radius: 7px;
+  background: var(--field);
+  font-weight: 850;
+  text-align: center;
+}
+
+.share-row {
+  padding: 10px;
+  border-radius: 7px;
+  background: var(--field);
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 8px 0 10px;
+}
+
+.section-head h1,
+.race-hero h1 {
+  font-size: clamp(36px, 5vw, 64px);
+}
+
+.inline-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.inline-form input {
+  flex: 1;
+  min-width: 0;
+}
+
+.route-row,
+.challenge-row,
+.leader-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.route-row strong,
+.route-row span,
+.challenge-row strong,
+.challenge-row span {
+  display: block;
+}
+
+.route-row button,
+.challenge-row button {
+  min-width: 72px;
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  font-weight: 800;
+}
+
+.route-row button.small-success,
+.challenge-row button.small-success {
+  border-color: transparent;
+  background: var(--green);
+}
+
+.challenge-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.compact-progress {
+  display: grid;
+  gap: 8px;
+}
+
+.race-layout {
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+}
+
+.race-hero {
+  grid-column: 1 / -1;
+  min-height: 300px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.race-map {
+  position: relative;
+}
+
+.runner-dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 3px solid white;
+  border-radius: 999px;
+  background: var(--coral);
+  box-shadow: 0 8px 18px rgba(21, 25, 28, 0.18);
+}
+
+.dot-1 {
+  left: 58%;
+  top: 45%;
+}
+
+.dot-2 {
+  left: 51%;
+  top: 50%;
+}
+
+.dot-3 {
+  left: 43%;
+  top: 54%;
+}
+
+.leader-row {
+  grid-template-columns: 34px minmax(0, 1fr) auto auto;
+}
+
+.leader-row span {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--green);
+  font-weight: 900;
+}
+
+.leader-row em,
+.leader-row small {
+  color: var(--muted);
+  font-style: normal;
+  font-weight: 750;
+}
+
+.training-grid,
+.plans-grid,
+.integration-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.training-card,
+.integration-card {
+  display: grid;
+  gap: 10px;
+  min-height: 150px;
+  padding: 18px;
+  text-align: left;
+}
+
+.training-card.active,
+.integration-card.active,
+.plan-card.active {
+  border-color: var(--ink);
+  box-shadow: 8px 8px 0 rgba(21, 25, 28, 0.12);
+}
+
+.coach-player {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.timeline {
+  display: flex;
+  gap: 6px;
+  margin-top: 18px;
+}
+
+.timeline span {
+  min-height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: var(--field);
+  color: var(--muted);
+  font-weight: 850;
+  font-size: 13px;
+}
+
+.billing-provider {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 12px 14px;
+  font-weight: 850;
+}
+
+.plan-card {
+  display: grid;
+  gap: 14px;
+  padding: 20px;
+}
+
+.plan-card strong {
+  font-size: 28px;
+}
+
+.plan-card span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-weight: 750;
+}
+
+.integration-card {
+  border: 1px solid var(--line);
+}
+
+.integration-card span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+.toast {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 30;
+  max-width: min(360px, calc(100vw - 44px));
+  padding: 14px 16px;
+  border-radius: 7px;
+  background: var(--ink);
+  color: white;
+  box-shadow: var(--shadow);
+  font-weight: 800;
+}
+
+@keyframes dashRun {
+  from {
+    stroke-dashoffset: 640;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 1080px) {
+  .auth-shell,
+  .app-shell,
+  .hero-band,
+  .race-hero,
+  .record-layout,
+  .race-layout,
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-visual {
+    min-height: 420px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .workspace {
+    padding-bottom: 92px;
+  }
+
+  .mobile-nav {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 20;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    padding: 8px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(16px);
+    box-shadow: var(--shadow);
+  }
+
+  .mobile-nav button {
+    min-height: 44px;
+  }
+
+  .metrics-grid,
+  .training-grid,
+  .plans-grid,
+  .integration-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 660px) {
+  .workspace {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .auth-panel h1,
+  .hero-band h1,
+  .section-head h1,
+  .race-hero h1 {
+    font-size: 34px;
+    line-height: 1;
+    overflow-wrap: anywhere;
+  }
+
+  .auth-panel,
+  .auth-visual {
+    padding: 24px;
+  }
+
+  .hero-band,
+  .race-hero {
+    min-height: auto;
+    padding: 24px 16px;
+  }
+
+  .phone-preview {
+    justify-self: center;
+    width: min(100%, 300px);
+    max-width: 300px;
+    min-height: 340px;
+    padding: 12px;
+    border-width: 8px;
+    transform: none;
+  }
+
+  .phone-preview .route-map {
+    height: 250px;
+  }
+
+  .phone-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-band p,
+  .race-hero p {
+    max-width: 300px;
+    font-size: 16px;
+    overflow-wrap: break-word;
+  }
+
+  .topbar-actions {
+    display: none;
+  }
+
+  .metrics-grid,
+  .training-grid,
+  .plans-grid,
+  .integration-grid,
+  .record-stats,
+  .post-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .record-console {
+    min-height: auto;
+  }
+
+  .inline-form,
+  .coach-player,
+  .section-head {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .leader-row {
+    grid-template-columns: 34px minmax(0, 1fr);
+  }
+
+  .leader-row em,
+  .leader-row small {
+    grid-column: 2;
+  }
+}

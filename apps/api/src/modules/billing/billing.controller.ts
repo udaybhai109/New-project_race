@@ -10,6 +10,11 @@ export class BillingController {
     return { data: this.billingService.currentEntitlements(userId) };
   }
 
+  @Post("checkout")
+  checkout(@Body() body: { userId: string; planId: string; countryCode: string; successUrl?: string; cancelUrl?: string }) {
+    return { data: this.billingService.createCheckout(body) };
+  }
+
   @Post("webhooks/stripe")
   stripeWebhook(@Body() body: Record<string, unknown>) {
     return {
@@ -20,4 +25,3 @@ export class BillingController {
     };
   }
 }
-

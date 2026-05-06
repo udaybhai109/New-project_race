@@ -1,1 +1,12 @@
 node_modules
+dist
+*.log
+.env
+.env.*
+!.env.example
+coverage
+.DS_Store
+tmp
+output
+apps/*/dist
+services/*/dist
